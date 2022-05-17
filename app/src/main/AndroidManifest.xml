@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Figtoand">
         <activity
+            android:name=".Reference"
+            android:exported="false" />
+        <activity
+            android:name=".Piano_Chords"
+            android:exported="false" />
+        <activity
+            android:name=".Guitar_Chords"
+            android:exported="false" />
+        <activity
             android:name=".Lyrics"
             android:exported="false" />
         <activity
