@@ -15,6 +15,7 @@ import java.util.List;
 
 public class Lyrics extends AppCompatActivity {
     ListView listView;
+    String[] refarr = {"circle_of_fifths","power of A4","dynamics & harmonics"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,26 +26,14 @@ public class Lyrics extends AppCompatActivity {
         harry.setPhoneNumber("999");
         harry.setName("harry");
         db.addContact(harry);
-        Contact harry1=new Contact();
-        harry1.setId(2);
-        harry1.setPhoneNumber("999");
-        harry1.setName("harry1");
-        db.addContact(harry1);
-        Contact harry2=new Contact();
-        harry2.setId(1);
-        harry2.setPhoneNumber("999");
-        harry2.setName("harry2");
-        db.addContact(harry2);
-        harry.setId(1);
-        harry.setName("harrynew");
-        harry.setPhoneNumber("0000");
+
         int noofaffectedrows=db.updateContact(harry);
         Log.d("dbharry1","affected rows "+noofaffectedrows);
 
         Log.d("dbharry1","query being run is "+harry.getPhoneNumber()+" "+harry.getId());
         db.deleteContactById(1);
         db.deleteContactById(2);
-        ArrayList<String>contacts=new ArrayList<>();
+        ArrayList<String>contacts=new ArrayList<String>();
         listView=findViewById(R.id.listView);
         List<Contact> allContacts=db.getAllContacts();
 
@@ -52,7 +41,7 @@ public class Lyrics extends AppCompatActivity {
             Log.d("dbaryan",contact.getName()+contact.getPhoneNumber()+" "+contact.getId());
             contacts.add(contact.getName()+" ("+contact.getPhoneNumber()+")");
         }
-        ArrayAdapter<String>arrayAdapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,contacts);
+        ArrayAdapter<String>arrayAdapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,refarr);
         listView.setAdapter(arrayAdapter);
         Log.d("dbharry","you have "+db.getCount()+" data");
     }
