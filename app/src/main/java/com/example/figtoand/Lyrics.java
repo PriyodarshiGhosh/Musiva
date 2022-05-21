@@ -3,57 +3,52 @@ package com.example.figtoand;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.figtoand.data.MyDbHandler;
-import com.example.figtoand.model.Contact;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONException;
 
 public class Lyrics extends AppCompatActivity {
-    ListView listView;
+    EditText edtArtistName,edtSongName;
+    Button btnGetLyrics;
+    TextView txtLyrics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lyrics);
-        MyDbHandler db=new MyDbHandler(Lyrics.this);
-        Contact harry=new Contact();
-        harry.setId(1);
-        harry.setPhoneNumber("999");
-        harry.setName("harry");
-        db.addContact(harry);
-        Contact harry1=new Contact();
-        harry1.setId(2);
-        harry1.setPhoneNumber("999");
-        harry1.setName("harry1");
-        db.addContact(harry1);
-        Contact harry2=new Contact();
-        harry2.setId(1);
-        harry2.setPhoneNumber("999");
-        harry2.setName("harry2");
-        db.addContact(harry2);
-        harry.setId(1);
-        harry.setName("harrynew");
-        harry.setPhoneNumber("0000");
-        int noofaffectedrows=db.updateContact(harry);
-        Log.d("dbharry1","affected rows "+noofaffectedrows);
+        edtArtistName = findViewById(R.id.edtArtistName);
+        edtSongName = findViewById(R.id.edtSongName);
+        btnGetLyrics = findViewById(R.id.btnGetLyrics);
+        txtLyrics = findViewById(R.id.txtLyrics);
 
-        Log.d("dbharry1","query being run is "+harry.getPhoneNumber()+" "+harry.getId());
-        db.deleteContactById(1);
-        db.deleteContactById(2);
-        ArrayList<String>contacts=new ArrayList<>();
-        listView=findViewById(R.id.listView);
-        List<Contact> allContacts=db.getAllContacts();
+        btnGetLyrics.setOnClickListener(v -> {
+            Toast.makeText(getApplicationContext(), "This Button is Tapped", Toast.LENGTH_SHORT).show();
+            String url = "https://api.lyrics.ovh/v1/" + edtArtistName.getText().toString() + "/" +edtSongName.getText().toString();
+            url.replace(" ","20%");
+            RequestQueue requestQueue = Volley.newRequestQueue(Lyrics.this);
 
-        for(Contact contact:allContacts){
-            Log.d("dbaryan",contact.getName()+contact.getPhoneNumber()+" "+contact.getId());
-            contacts.add(contact.getName()+" ("+contact.getPhoneNumber()+")");
-        }
-        ArrayAdapter<String>arrayAdapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,contacts);
-        listView.setAdapter(arrayAdapter);
-        Log.d("dbharry","you have "+db.getCount()+" data");
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
+                try{
+                    txtLyrics.setText(response.getString("lyrics"));
+
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+            },
+                    error -> {
+
+                    });
+
+            requestQueue.add(jsonObjectRequest);
+        });
     }
+
 }

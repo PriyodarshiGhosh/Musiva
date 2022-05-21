@@ -4,17 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Lyrics">
+    tools:context=".Reference">
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginBottom="50dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edtArtistName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/please_enter_the_artist_name"
+                android:inputType="textPersonName"
+                android:autofillHints="" />
+
+            <EditText
+                android:id="@+id/edtSongName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/please_enter_the_song_name"
+                android:inputType="textPersonName"
+                android:autofillHints="" />
+
+            <Button
+                android:id="@+id/btnGetLyrics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/give_me_the_lyrics_of_this_song" />
+
+            <TextView
+                android:id="@+id/txtLyrics"
+                android:layout_width="match_parent"
+                android:layout_height="590dp"
+                android:gravity="center_horizontal"
+                android:textColor="#2196F3"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

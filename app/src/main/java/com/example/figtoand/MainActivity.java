@@ -21,17 +21,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-          setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
 
     }
 
 
     public void onClick_lyrics(View v){
-            // Intent is what you use to start another activity
-            Intent intent = new Intent(this, Lyrics.class);
-            startActivity(intent);
-        }
+        // Intent is what you use to start another activity
+        Intent intent = new Intent(this, Lyrics.class);
+        startActivity(intent);
+    }
     public void onClick_guitar(View v){
         // Intent is what you use to start another activity
         Intent intent = new Intent(this, Guitar_Chords.class);
@@ -47,6 +47,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Reference.class);
         startActivity(intent);
     }
-    
+
 
 }
