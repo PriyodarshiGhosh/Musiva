@@ -14,7 +14,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
-
+//
 public class Lyrics extends AppCompatActivity {
     EditText edtArtistName,edtSongName;
     Button btnGetLyrics;
