@@ -33,7 +33,7 @@ public class Lyrics extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "This Button is Tapped", Toast.LENGTH_SHORT).show();
             String url = "https://api.lyrics.ovh/v1/" + edtArtistName.getText().toString() + "/" +edtSongName.getText().toString();
             url.replace(" ","20%");
-            RequestQueue requestQueue = Volley.newRequestQueue(Lyrics.this);
+            RequestQueue requestQueue = Volley.newRequestQueue(Lyrics.this); // this keeps all the request in a queue
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
                 try{
