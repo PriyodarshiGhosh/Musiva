@@ -31,8 +31,10 @@ public class Lyrics extends AppCompatActivity {
 
         btnGetLyrics.setOnClickListener(v -> {
             Toast.makeText(getApplicationContext(), "This Button is Tapped", Toast.LENGTH_SHORT).show();
-            String url = "https://api.lyrics.ovh/v1/" + edtArtistName.getText().toString() + "/" +edtSongName.getText().toString();
-            url.replace(" ","20%");
+            //String url = "https://api.lyrics.ovh/v1/" + edtArtistName.getText().toString() + "/" +edtSongName.getText().toString();
+            String url = "https://musiva.herokuapp.com/lyrics/?artist=" + edtArtistName.getText().toString() + "&song=" + edtSongName.getText().toString();
+            url.replace(" ","%20");
+            //url.replace(" ","20%");
             RequestQueue requestQueue = Volley.newRequestQueue(Lyrics.this);
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
