@@ -14,6 +14,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
+
+import java.net.URL;
+
 //
 public class Lyrics extends AppCompatActivity {
     EditText edtArtistName,edtSongName;
@@ -22,6 +25,7 @@ public class Lyrics extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lyrics);
         edtArtistName = findViewById(R.id.edtArtistName);
@@ -30,9 +34,12 @@ public class Lyrics extends AppCompatActivity {
         txtLyrics = findViewById(R.id.txtLyrics);
 
         btnGetLyrics.setOnClickListener(v -> {
-            Toast.makeText(getApplicationContext(), "This Button is Tapped", Toast.LENGTH_SHORT).show();
-            String url = "https://api.lyrics.ovh/v1/" + edtArtistName.getText().toString() + "/" +edtSongName.getText().toString();
-            url.replace(" ","20%");
+            Toast.makeText(getApplicationContext(), "Fetching Lyrics in a sec", Toast.LENGTH_SHORT).show();
+            String url = "https://musiva.herokuapp.com/lyrics/?artist=" + edtArtistName.getText().toString() + "&song=" + edtSongName.getText().toString();
+            // String is immutable
+            // therefore creating another variable
+            String var = url.replace(" ","");
+            System.out.print(var);
             RequestQueue requestQueue = Volley.newRequestQueue(Lyrics.this);
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
