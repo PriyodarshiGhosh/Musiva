@@ -22,6 +22,7 @@ public class Lyrics extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lyrics);
         edtArtistName = findViewById(R.id.edtArtistName);
@@ -30,12 +31,13 @@ public class Lyrics extends AppCompatActivity {
         txtLyrics = findViewById(R.id.txtLyrics);
 
         btnGetLyrics.setOnClickListener(v -> {
-            Toast.makeText(getApplicationContext(), "This Button is Tapped", Toast.LENGTH_SHORT).show();
-            String url = "https://api.lyrics.ovh/v1/" + edtArtistName.getText().toString() + "/" +edtSongName.getText().toString();
-            url.replace(" ","20%");
+            Toast.makeText(getApplicationContext(), "Fetching Guitar Chords", Toast.LENGTH_SHORT).show();
+            //String url = "https://api.lyrics.ovh/v1/" + edtArtistName.getText().toString() + "/" +edtSongName.getText().toString();
+            String url = "https://musiva.herokuapp.com/lyrics/?artist=" + edtArtistName.getText().toString() + "&song=" + edtSongName.getText().toString();
+           String url1= url.replace(" ","");
             RequestQueue requestQueue = Volley.newRequestQueue(Lyrics.this);
 
-            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url1, null, response -> {
                 try{
                     txtLyrics.setText(response.getString("lyrics"));
 
