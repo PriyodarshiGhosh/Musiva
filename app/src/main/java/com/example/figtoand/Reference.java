@@ -24,7 +24,8 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import java.util.ArrayList;
+
+
 
 public class Reference extends AppCompatActivity {
     EditText edtMusicTerm;
@@ -34,8 +35,14 @@ public class Reference extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reference);
+
+//
+
+
+
         edtMusicTerm = findViewById(R.id.edtMusicTerm);
         btnGetMusic = findViewById(R.id.btnGetMusic);
         wbvMusic = (WebView) findViewById(R.id.wbvMusic);
@@ -46,5 +53,6 @@ public class Reference extends AppCompatActivity {
             wbvMusic.setWebViewClient(new WebViewClient());
             wbvMusic.loadUrl("http://en.m.wikipedia.org/wiki/"+edtMusicTerm.getText().toString());
         });
+
     }
 }
