@@ -3,5 +3,9 @@
     <string name="please_enter_the_artist_name">Please Enter the Artist Name</string>
     <string name="please_enter_the_song_name">Please enter the song name</string>
     <string name="give_me_the_lyrics_of_this_song">Give me the Lyrics of this song</string>
+
     <string name="scrap_text_from_web">Scrap Text from web</string>
+
+    
+
 </resources>
