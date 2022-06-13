@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Ref"
     tools:context=".Reference">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
     <ScrollView
@@ -28,23 +29,36 @@
 
             <EditText
                 android:id="@+id/edtMusicTerm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Please enter the music term"
+                android:hint="Enter the music term"
+                android:layout_width="360dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="30dp"
+                android:paddingLeft="30dp"
+                android:background="@drawable/rounded_textin"
+                android:layout_marginLeft="20dp"
+                android:textColorHint="@color/black"
                 android:inputType="textPersonName" />
 
 
             <Button
                 android:id="@+id/btnGetMusic"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="317dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="45dp"
+
+                android:backgroundTint="@color/search"
                 android:text=" Search " />
 
             <WebView
                 android:id="@+id/wbvMusic"
-                android:layout_width="match_parent"
-                android:layout_height="590dp"
+                android:layout_width="367dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="540dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/rounded_webv"
                 android:gravity="center_horizontal"
                 android:textColor="#2196F3"
                 android:textSize="12sp" />

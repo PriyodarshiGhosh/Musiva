@@ -5,6 +5,11 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="Lyrics">#FFE3AF63</color>
+    <color name="Pianoc">#FFF05365</color>
+    <color name="Guitarc">#FF95ACF8</color>
+    <color name="Ref">#FF52FFB8</color>
+    <color name="search">#FF363537</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
