@@ -1,4 +1,4 @@
-# Musiva
+# Musiva:music app which has a lyrics finder,guitar chord fetcher,piano chord fetcher and functionality to search for anything related to music
 splash<img src="https://user-images.githubusercontent.com/96041428/173572535-0e95eaf9-c6c9-4aa7-a4bf-a0db86da855e.jpg" alt="drawing" width="200"/>
 home<img src="https://user-images.githubusercontent.com/96041428/173572556-490fbd18-dadd-4bd2-8409-d5c6d91a7ab2.jpg" alt="drawing" width="200"/>
 lyrics<img src="https://user-images.githubusercontent.com/96041428/173572568-c0f6f487-a364-4e16-a50d-48e4c06eedf7.jpg" alt="drawing" width="200"/>
